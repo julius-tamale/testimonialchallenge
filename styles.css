@@ -90,6 +90,9 @@ footer {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
     }
 
     footer {
@@ -97,11 +100,19 @@ footer {
     }
     .main-container {
         grid-template-columns: repeat(4, 1fr);
+        margin-bottom: 10px;
+        width: 80%;
     }
     .purple-bg {
         grid-column: span 2;
     }
     .kira-white-bg {
-        grid-column: 4/5;
+        grid-area: 1/4/3/-1;
+    }
+    .white-bg {
+        grid-column: 1/2;
+    }
+    .black-blue-bg {
+        grid-column: 2/4;
     }
 }
