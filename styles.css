@@ -1,11 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&display=swap');
-
 * {
     margin: 0;
     padding: 0;
+}
+*, *::before, *::after {
     box-sizing: border-box;
 }
-
+html {
+    font-size: 16px;
+}
 :root {
     --moderate-violet: hsl(263, 55%, 52%);
     --very-dark-grayish-blue: hsl(217, 19%, 35%);
@@ -14,105 +17,155 @@
 
     --light-gray: hsl(0, 0%, 81%);
     --light-grayish-blue: hsl(210, 46%, 95%);
-    --font: 'Barlow Semi Condensed', sans-serif;
+    --ff-one: 'Barlow Semi Condensed', sans-serif;
 }
-
 body {
-    font-family: var(--font);
-    background: var(--light-grayish-blue);
-    font-size: 13px;
+    font-size: 0.813rem;
+    font-family: var(--ff-one);
+    background-color: var(--light-grayish-blue);
+    width: 100vw;
+    line-height: 1.5;
 }
-
+/* ============ MOBILE LAYOUT START ========= */
 .main-container {
-    display: grid;
-    gap: 25px;
-    width: 85%;
-    margin: 70px auto;
+    margin: 4.688rem auto 1rem;
+    max-width: 90%;
 }
-
 .name-card {
     display: flex;
+    gap: 0.5rem;
     align-items: center;
+    line-height: 1;
+    margin-bottom: 2rem;
+    font-size: 0.813rem;
 }
-.name-card,
-h2, p {
-    margin-bottom: 20px;
-}
-.name-card img {
-    border-radius: 50%;
-    margin-right: 20px;
-    width: 50px;
+section {
+    padding: 1.5rem;
+    color: var(--white);
+    border-radius: 0.75rem;
+    margin-bottom: 1.5rem;
 }
 .name-card span {
     display: block;
+    font-size: 1rem;
     opacity: 0.5;
-    font-size: 16px;
 }
-h2 {
-    font-size: 22px;
-    font-weight: 600;
-    padding-right: 3px;
+.name-card img {
+    border-radius: 50%;
+    width: 3rem;
+}
+.purple-rd img {
+    border: 2px solid purple;
+}
+.purple-bg {
+    background: var(--moderate-violet) url(/images/bg-pattern-quotation.svg) no-repeat;
+    background-position: top right 1rem;
+    background-size: 75px 100px;
+}
+section h3 {
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
 }
 section p {
     opacity: 0.7;
-    padding-right: 25px;
-    font-size: 14px;
-}
-section {
-    border-radius: 10px;
-    padding: 20px;
-    color: var(--white);
-}
-.purple-bg {
-    background: var(--moderate-violet);
+    padding-right: 0.5rem;
 }
 .gray-blue-bg {
-    background: var(--very-dark-grayish-blue);
+    background-color: var(--very-dark-grayish-blue);
 }
-.white-bg {
+.gry-font {
+    color: var(--very-dark-grayish-blue);
     background: var(--white);
-    color: var(--very-dark-blackish-blue);
 }
 .black-blue-bg {
-    background: var(--very-dark-blackish-blue);
-}
-.kira-white-bg {
-    background: var(--white);
-    color: var(--very-dark-blackish-blue);
+    background-color: var(--very-dark-blackish-blue);
 }
 footer {
-    display: none;
+    padding-bottom: 2rem;
+    text-align: center;
 }
+footer a {
+    color: brown;
+    text-decoration: none;
+}
+footer a:hover {
+    text-decoration: underline wavy darkblue;
+}
+/* ============ MOBILE LAYOUT END ========= */
 
-@media screen and (min-width: 900px) {
-    body {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 100vw;
-        height: 100vh;
-        overflow: hidden;
-    }
-
-    footer {
-        display: block;
-    }
+/* ============ TABLET LAYOUT START ========= */
+@media screen and (min-width: 760px) and (max-width: 900px) {
     .main-container {
-        grid-template-columns: repeat(4, 1fr);
-        margin-bottom: 10px;
-        width: 80%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
     }
-    .purple-bg {
+    .grid-2 {
         grid-column: span 2;
     }
-    .kira-white-bg {
-        grid-area: 1/4/3/-1;
-    }
-    .white-bg {
-        grid-column: 1/2;
-    }
-    .black-blue-bg {
-        grid-column: 2/4;
+    .gray-blue-bg {
+        margin-right: 1.25rem;
     }
 }
+/* ============ TABLET LAYOUT END ========= */
+
+/* ============ LAPTOP & DESKTOP LAYOUT START ========= */
+@media screen and (min-width: 950px) {
+    body {
+        /*overflow: hidden;*/
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .main-container {
+        margin: 0;
+        font-size: 13px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+    .purple-bg,
+    .black-blue-bg {
+        grid-column: span 2;
+    }
+    .purple-bg {
+        background-position: top right 75px;
+        background-size: 70px 80px;
+    }
+    .kira-white-bg {
+        grid-column: 4 / 5;
+        grid-row: 1 / 3;
+    }
+    section {
+        padding: 0.85rem 1rem;
+        margin: 0;
+        border-radius: 5px;
+    }
+    .name-card {
+        margin: 0 0 15px;
+        gap: 0;
+        font-size: 13px;
+    }
+    .name-card img {
+        width: 35px;
+        display: inline-block;
+        margin-right: 20px;
+    }
+    .name-card span {
+        font-size: 13px;
+    }
+    section h3 {
+        margin: 0 0 15px;
+        padding: 0;
+        font-size: 13px;
+    }
+    section p {
+        padding: 0;
+    }
+    footer {
+        margin-top: 2rem;
+    }
+}
+/* ============ LAPTOP & DESKTOP LAYOUT END ========= */
